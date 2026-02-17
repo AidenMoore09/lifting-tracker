@@ -1,0 +1,35 @@
+{
+    "tasks": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "prepare": "svelte-kit sync || echo ''",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "format": "deno fmt",
+        "lint": "deno lint"
+    },
+    "fmt": {
+        "indentWidth": 4
+    },
+    "unstable": ["fmt-component"],
+    "nodeModulesDir": "auto",
+    "imports": {
+        "@sveltejs/adapter-auto": "npm:@sveltejs/adapter-auto@^7.0.1",
+        "@sveltejs/kit": "npm:@sveltejs/kit@^2.52.0",
+        "@sveltejs/vite-plugin-svelte": "npm:@sveltejs/vite-plugin-svelte@^6.2.4",
+        "@tailwindcss/forms": "npm:@tailwindcss/forms@^0.5.11",
+        "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.19",
+        "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.18",
+        "@types/node": "npm:@types/node@^24.2.0",
+        "@types/pg": "npm:@types/pg@^8.16.0",
+        "drizzle-kit": "npm:drizzle-kit@^0.31.9",
+        "drizzle-orm": "npm:drizzle-orm@^0.45.1",
+        "pg": "npm:pg@^8.18.0",
+        "svelte": "npm:svelte@^5.51.2",
+        "svelte-check": "npm:svelte-check@^4.4.0",
+        "tailwindcss": "npm:tailwindcss@^4.1.18",
+        "vite": "npm:vite@^7.3.1",
+        "zod": "npm:zod@^4.3.6"
+    }
+}
