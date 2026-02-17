@@ -2,9 +2,7 @@
 
 **(Name TBD)**
 
-
 To get started, first install necessary dependencies:
-
 
 ```
 deno install
