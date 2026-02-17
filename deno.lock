@@ -15,7 +15,8 @@
     "npm:svelte-check@^4.4.0": "4.4.0_svelte@5.51.2__acorn@8.15.0_typescript@5.9.3",
     "npm:svelte@^5.51.2": "5.51.2_acorn@8.15.0",
     "npm:tailwindcss@^4.1.18": "4.1.18",
-    "npm:vite@^7.3.1": "7.3.1_@types+node@24.2.0_picomatch@4.0.3"
+    "npm:vite@^7.3.1": "7.3.1_@types+node@24.2.0_picomatch@4.0.3",
+    "npm:zod@^4.3.6": "4.3.6"
   },
   "npm": {
     "@drizzle-team/brocli@0.10.2": {
@@ -1326,6 +1327,9 @@
     },
     "zimmerframe@1.1.4": {
       "integrity": "sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ=="
+    },
+    "zod@4.3.6": {
+      "integrity": "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="
     }
   },
   "workspace": {
@@ -1344,7 +1348,8 @@
       "npm:svelte-check@^4.4.0",
       "npm:svelte@^5.51.2",
       "npm:tailwindcss@^4.1.18",
-      "npm:vite@^7.3.1"
+      "npm:vite@^7.3.1",
+      "npm:zod@^4.3.6"
     ]
   }
 }
