@@ -1,5 +1,8 @@
 {
-    "files.associations": {
-        "*.css": "tailwindcss"
-    }
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"deno.enable": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.configPath": ".prettierrc"
 }

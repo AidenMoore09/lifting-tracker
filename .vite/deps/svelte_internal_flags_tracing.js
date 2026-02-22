@@ -1,4 +1,5 @@
-import { enable_tracing_mode_flag } from "./chunk-LJXMJ73G.js";
+import { enable_tracing_mode_flag } from './chunk-LJXMJ73G.js';
+import './chunk-5WRI5ZAA.js';
 
 // node_modules/.deno/svelte@5.51.2/node_modules/svelte/src/internal/flags/tracing.js
 enable_tracing_mode_flag();

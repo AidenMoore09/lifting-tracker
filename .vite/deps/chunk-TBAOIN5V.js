@@ -1,0 +1,36 @@
+import { entityKind } from './chunk-H3MX4BPC.js';
+
+// node_modules/.deno/drizzle-orm@0.45.1/node_modules/drizzle-orm/logger.js
+var ConsoleLogWriter = class {
+	static [entityKind] = 'ConsoleLogWriter';
+	write(message) {
+		console.log(message);
+	}
+};
+var DefaultLogger = class {
+	static [entityKind] = 'DefaultLogger';
+	writer;
+	constructor(config) {
+		this.writer = config?.writer ?? new ConsoleLogWriter();
+	}
+	logQuery(query, params) {
+		const stringifiedParams = params.map((p) => {
+			try {
+				return JSON.stringify(p);
+			} catch {
+				return String(p);
+			}
+		});
+		const paramsStr = stringifiedParams.length
+			? ` -- params: [${stringifiedParams.join(', ')}]`
+			: '';
+		this.writer.write(`Query: ${query}${paramsStr}`);
+	}
+};
+var NoopLogger = class {
+	static [entityKind] = 'NoopLogger';
+	logQuery() {}
+};
+
+export { ConsoleLogWriter, DefaultLogger, NoopLogger };
+//# sourceMappingURL=chunk-TBAOIN5V.js.map

@@ -5,11 +5,11 @@
 To get started, first install necessary dependencies:
 
 ```
-deno install
+npm install
 ```
 
 To build, run:
 
 ```
-deno task dev --open
+npm run dev --open
 ```
