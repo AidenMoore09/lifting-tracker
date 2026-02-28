@@ -1,10 +1,10 @@
+import './chunk-5WRI5ZAA.js';
+
 // node_modules/.deno/svelte@5.51.2/node_modules/svelte/src/version.js
-var PUBLIC_VERSION = "5";
+var PUBLIC_VERSION = '5';
 
 // node_modules/.deno/svelte@5.51.2/node_modules/svelte/src/internal/disclose-version.js
-if (typeof window !== "undefined") {
-    ((window.__svelte ??= {}).v ??= /* @__PURE__ */ new Set()).add(
-        PUBLIC_VERSION,
-    );
+if (typeof window !== 'undefined') {
+	((window.__svelte ??= {}).v ??= /* @__PURE__ */ new Set()).add(PUBLIC_VERSION);
 }
 //# sourceMappingURL=svelte_internal_disclose-version.js.map
