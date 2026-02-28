@@ -32,15 +32,18 @@ export const actions = {
 			return fail(400, { error: 'Please enter a valid login' });
 		}
 
-		const { data, error } = await supabase.auth.signInWithPassword({
+		const { data, error } = await supabase.auth.signUp({
 			email: email,
-			password: password
+			password: password,
+			options: {
+				emailRedirectTo: 'https://localhost:5173/auth/login'
+			}
 		});
 
 		if (error) {
 			return fail(500, { error: error.message });
 		}
 
-		return { success: true, message: 'Successfully logged in' };
+		return { success: true, message: "Successfully Logged In" };
 	}
 } satisfies Actions;
