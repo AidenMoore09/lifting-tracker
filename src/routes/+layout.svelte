@@ -6,6 +6,7 @@
 	<a href="/home">Home</a>
 	<a href="/users">Users</a>
 	<a href="/auth/reset-password">Reset Password</a>
+	<a href="/auth/login">Login</a>
 </nav>
 
 {@render children()}

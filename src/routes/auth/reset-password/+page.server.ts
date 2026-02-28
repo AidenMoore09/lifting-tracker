@@ -17,7 +17,7 @@ export const actions = {
 		}
 
 		const { error } = await supabase.auth.resetPasswordForEmail(result.data.email, {
-			redirectTo: 'http://example.com/account/update-password'
+			redirectTo: 'http://localhost:5173/auth/update-password'
 		});
 
 		if (error) {
