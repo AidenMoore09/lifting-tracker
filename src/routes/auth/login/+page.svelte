@@ -1,3 +1,10 @@
+<script lang="ts">
+	import { enhance } from '$app/forms';
+	import type { ActionData } from './$types';
+
+	let { form }: { form: ActionData } = $props();
+</script>
+
 <form method="POST">
 	<label>
 		Email
@@ -7,5 +14,18 @@
 		Password
 		<input name="password" type="password" />
 	</label>
+	{#if form?.error}
+		<p>{form.error}</p>
+	{/if}
+
+	{#if form?.success}
+		<p>{form.message}</p>
+	{/if}
+
 	<button>Log in</button>
 </form>
+
+<div style="margin: 1rem;">
+	<button><a href="/auth/reset-password">Forgot Password?</a></button>
+	<button><a href="/auth/register">Register</a></button>
+</div>
