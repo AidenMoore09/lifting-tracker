@@ -32,6 +32,7 @@
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.4.1",
 		"prettier-plugin-tailwindcss": "^0.7.2",
+		"supabase": "^2.76.15",
 		"svelte": "^5.49.2",
 		"svelte-check": "^4.3.6",
 		"tailwindcss": "^4.1.18",
@@ -41,8 +42,11 @@
 		"vite": "^7.3.1"
 	},
 	"dependencies": {
+		"@supabase/ssr": "^0.8.0",
+		"@supabase/supabase-js": "^2.98.0",
 		"dotenv": "^17.3.1",
 		"drizzle-orm": "^0.45.1",
-		"pg": "^8.18.0"
+		"pg": "^8.18.0",
+		"zod": "^4.3.6"
 	}
 }
