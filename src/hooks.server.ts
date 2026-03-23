@@ -1,8 +1,10 @@
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_PUBLISHABLE_KEY } from '$env/static/public';
 import { createServerClient } from '@supabase/ssr';
+import { redirect } from '@sveltejs/kit';
+import { sequence } from '@sveltejs/kit/hooks';
 import type { Handle } from '@sveltejs/kit';
 
-export const handle: Handle = async ({ event, resolve }) => {
+const supabase: Handle = async ({ event, resolve }) => {
 	event.locals.supabase = createServerClient(
 		PUBLIC_SUPABASE_URL,
 		PUBLIC_SUPABASE_PUBLISHABLE_KEY,
@@ -12,12 +14,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 					return event.cookies.getAll();
 				},
 				setAll(cookiesToSet) {
-					/**
-					 * Note: You have to add the `path` variable to the
-					 * set and remove method due to sveltekit's cookie API
-					 * requiring this to be set, setting the path to an empty string
-					 * will replicate previous/standard behavior (https://kit.svelte.dev/docs/types#public-types-cookies)
-					 */
 					cookiesToSet.forEach(({ name, value, options }) =>
 						event.cookies.set(name, value, { ...options, path: '/' })
 					);
@@ -26,11 +22,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 		}
 	);
 
-	/**
-	 * Unlike `supabase.auth.getSession()`, which returns the session _without_
-	 * validating the JWT, this function also calls `getUser()` to validate the
-	 * JWT before returning the session.
-	 */
 	event.locals.safeGetSession = async () => {
 		const {
 			data: { session }
@@ -57,3 +48,21 @@ export const handle: Handle = async ({ event, resolve }) => {
 		}
 	});
 };
+
+const authGuard: Handle = async ({ event, resolve }) => {
+	const { session, user } = await event.locals.safeGetSession();
+	event.locals.session = session;
+	event.locals.user = user;
+
+	if (!event.locals.session && !event.url.pathname.startsWith('/auth')) {
+		redirect(303, '/auth/login');
+	}
+
+	if (event.locals.session && event.url.pathname.startsWith('/auth')) {
+		redirect(303, '/home');
+	}
+
+	return resolve(event);
+};
+
+export const handle: Handle = sequence(supabase, authGuard);

@@ -14,6 +14,9 @@ const passwordSchema = z
 	})
 	.refine((password) => /[0-9]/.test(password), {
 		message: 'Your password should contain at least one number'
+	})
+	.refine((password) => /[!@#$%^&*]/.test(password), {
+		message: 'Your password should contain at least one special character'
 	});
 
 const schema = z.strictObject({

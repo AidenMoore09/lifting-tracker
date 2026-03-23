@@ -14,6 +14,9 @@ const passwordSchema = z
 	})
 	.refine((password) => /[0-9]/.test(password), {
 		message: 'Your password should contain at least one number'
+	})
+	.refine((password) => /[!@#$%^&*]/.test(password), {
+		message: 'Your password should contain at least one special character'
 	});
 
 const updatePasswordSchema = z
@@ -52,6 +55,6 @@ export const actions = {
 			return fail(500, { error: error.message });
 		}
 
-		return { success: true, message: "Successfully updated password." };
+		return { success: true, message: 'Successfully updated password.' };
 	}
 } satisfies Actions;

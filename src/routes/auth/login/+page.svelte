@@ -5,7 +5,7 @@
 	let { form }: { form: ActionData } = $props();
 </script>
 
-<form method="POST">
+<form method="POST" use:enhance>
 	<label>
 		Email
 		<input name="email" type="email" />
