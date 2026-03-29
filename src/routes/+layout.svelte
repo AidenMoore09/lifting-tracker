@@ -2,9 +2,12 @@
 	let { children } = $props();
 </script>
 
-<nav>
-	<a href="/">Home</a>
-	<a href="/users">Users</a>
-</nav>
+<div style="margin-bottom: 1rem;">
+	<nav>
+		<a href="/home">Home</a>
+		<a href="/users">Users</a>
+		<a href="/auth/login">Login</a>
+	</nav>
+</div>
 
 {@render children()}
